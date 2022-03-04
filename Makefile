@@ -1,25 +1,28 @@
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS =
 
 NAMECCOLLEEN = bin/C/Colleen
 SRCSCCOLLEEN = srcs/C/Colleen.c
 OBJCCOLLEEN = $(SRCSCCOLLEEN:.c=.o)
 
-NAMEGRACE = Grace
-
-NAMESULLY = Sully
+NAMECGRACE = bin/C/Grace
+SRCSCGRACE = srcs/C/Grace.c
+OBJCGRACE = $(SRCSCGRACE:.c=.o)
 
 $(NAMECCOLLEEN): $(OBJCCOLLEEN)
 	$(CC) $(CFLAGS) $(OBJCCOLLEEN) -o $(NAMECCOLLEEN)
 
-all:	$(NAMECCOLLEEN)
+$(NAMECGRACE): $(OBJCGRACE)
+	$(CC) $(CFLAGS) $(OBJCGRACE) -o $(NAMECGRACE)
+
+all:	$(NAMECGRACE)
 
 exec:
 	./bin/C/Colleen
 
 clean:
-	rm -f $(OBJCCOLLEEN)
+	rm -f $(OBJCCOLLEEN) $(OBJCGRACE)
 
 fclean: clean
-	rm -f $(NAMECCOLLEEN)
+	rm -f $(NAMECCOLLEEN) $(NAMECGRACE)
