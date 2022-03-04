@@ -1,6 +1,6 @@
 CC = clang
 
-CFLAGS =
+CFLAGS = 
 
 NAMECCOLLEEN = bin/C/Colleen
 SRCSCCOLLEEN = srcs/C/Colleen.c
@@ -10,13 +10,13 @@ NAMECGRACE = bin/C/Grace
 SRCSCGRACE = srcs/C/Grace.c
 OBJCGRACE = $(SRCSCGRACE:.c=.o)
 
+all:	$(NAMECCOLLEEN)
+
 $(NAMECCOLLEEN): $(OBJCCOLLEEN)
 	$(CC) $(CFLAGS) $(OBJCCOLLEEN) -o $(NAMECCOLLEEN)
 
 $(NAMECGRACE): $(OBJCGRACE)
 	$(CC) $(CFLAGS) $(OBJCGRACE) -o $(NAMECGRACE)
-
-all:	$(NAMECGRACE)
 
 exec:
 	./bin/C/Colleen
