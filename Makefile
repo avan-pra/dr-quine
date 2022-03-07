@@ -10,12 +10,14 @@ NAMECGRACE = bin/C/Grace
 SRCSCGRACE = srcs/C/Grace.c
 OBJCGRACE = $(SRCSCGRACE:.c=.o)
 
-all:	$(NAMECCOLLEEN)
+all:	$(NAMECGRACE)
 
 $(NAMECCOLLEEN): $(OBJCCOLLEEN)
+	@mkdir -p bin/C
 	$(CC) $(CFLAGS) $(OBJCCOLLEEN) -o $(NAMECCOLLEEN)
 
 $(NAMECGRACE): $(OBJCGRACE)
+	@mkdir -p bin/C
 	$(CC) $(CFLAGS) $(OBJCGRACE) -o $(NAMECGRACE)
 
 exec:
