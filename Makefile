@@ -13,6 +13,7 @@ OBJCGRACE = $(SRCSCGRACE:.c=.o)
 NAMECSULLY = bin/C/Sully
 SRCSCSULLY = srcs/C/Sully.c
 OBJCSULLY = $(SRCSCSULLY:.c=.o)
+SULLYCGARBAGE = bin/C/Sully_*
 
 all:	$(NAMECSULLY)
 
@@ -32,7 +33,7 @@ exec:
 	./bin/C/Colleen
 
 clean:
-	rm -f $(OBJCCOLLEEN) $(OBJCGRACE) $(OBJCSULLY)
+	rm -f $(OBJCCOLLEEN) $(OBJCGRACE) $(OBJCSULLY) $(SULLYCGARBAGE)
 
 fclean: clean
 	rm -f $(NAMECCOLLEEN) $(NAMECGRACE) $(NAMECSULLY)
