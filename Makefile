@@ -26,7 +26,7 @@ all:	$(NAMEACOLLEEN)
 
 $(NAMEACOLLEEN): $(OBJACOLLEEN)
 	@mkdir -p bin/Asm
-	ld $(OBJACOLLEEN) -o $(NAMEACOLLEEN)
+	$(CC) $(OBJACOLLEEN) -o $(NAMEACOLLEEN)
 
 $(NAMECCOLLEEN): $(OBJCCOLLEEN)
 	@mkdir -p bin/C
