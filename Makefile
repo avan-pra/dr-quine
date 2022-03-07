@@ -1,6 +1,6 @@
 CC = clang
 
-CFLAGS = 
+CFLAGS =
 
 NAMECCOLLEEN = bin/C/Colleen
 SRCSCCOLLEEN = srcs/C/Colleen.c
@@ -15,7 +15,18 @@ SRCSCSULLY = srcs/C/Sully.c
 OBJCSULLY = $(SRCSCSULLY:.c=.o)
 SULLYCGARBAGE = bin/C/Sully_*
 
-all:	$(NAMECSULLY)
+NAMEACOLLEEN = bin/Asm/Colleen
+SRCSACOLLEEN = srcs/Asm/Colleen.s
+OBJACOLLEEN = $(SRCSACOLLEEN:.s=.o)
+
+%.o: %.s
+	nasm -f elf64 -o $*.o $*.s
+
+all:	$(NAMEACOLLEEN)
+
+$(NAMEACOLLEEN): $(OBJACOLLEEN)
+	@mkdir -p bin/Asm
+	ld $(OBJACOLLEEN) -o $(NAMEACOLLEEN)
 
 $(NAMECCOLLEEN): $(OBJCCOLLEEN)
 	@mkdir -p bin/C
@@ -33,7 +44,7 @@ exec:
 	./bin/C/Colleen
 
 clean:
-	rm -f $(OBJCCOLLEEN) $(OBJCGRACE) $(OBJCSULLY) $(SULLYCGARBAGE)
+	rm -f $(OBJCCOLLEEN) $(OBJCGRACE) $(OBJCSULLY) $(SULLYCGARBAGE) $(OBJACOLLEEN)
 
 fclean: clean
-	rm -f $(NAMECCOLLEEN) $(NAMECGRACE) $(NAMECSULLY)
+	rm -f $(NAMECCOLLEEN) $(NAMECGRACE) $(NAMECSULLY) $(NAMEACOLLEEN)
