@@ -10,7 +10,11 @@ NAMECGRACE = bin/C/Grace
 SRCSCGRACE = srcs/C/Grace.c
 OBJCGRACE = $(SRCSCGRACE:.c=.o)
 
-all:	$(NAMECGRACE)
+NAMECSULLY = bin/C/Sully
+SRCSCSULLY = srcs/C/Sully.c
+OBJCSULLY = $(SRCSCSULLY:.c=.o)
+
+all:	$(NAMECSULLY)
 
 $(NAMECCOLLEEN): $(OBJCCOLLEEN)
 	@mkdir -p bin/C
@@ -20,11 +24,15 @@ $(NAMECGRACE): $(OBJCGRACE)
 	@mkdir -p bin/C
 	$(CC) $(CFLAGS) $(OBJCGRACE) -o $(NAMECGRACE)
 
+$(NAMECSULLY): $(OBJCSULLY)
+	@mkdir -p bin/C
+	$(CC) $(CFLAGS) $(OBJCSULLY) -o $(NAMECSULLY)
+
 exec:
 	./bin/C/Colleen
 
 clean:
-	rm -f $(OBJCCOLLEEN) $(OBJCGRACE)
+	rm -f $(OBJCCOLLEEN) $(OBJCGRACE) $(OBJCSULLY)
 
 fclean: clean
-	rm -f $(NAMECCOLLEEN) $(NAMECGRACE)
+	rm -f $(NAMECCOLLEEN) $(NAMECGRACE) $(NAMECSULLY)
