@@ -31,7 +31,7 @@ SULLYAGARBAGE = bin/Asm/Sully_*
 %.o: %.s
 	nasm -f elf64 -o $*.o $*.s
 
-all:	$(NAMEASULLY)
+all:	$(NAMECCOLLEEN) $(NAMECGRACE) $(NAMECSULLY) $(NAMEACOLLEEN) $(NAMEAGRACE) $(NAMEASULLY)
 
 $(NAMEACOLLEEN): $(OBJACOLLEEN)
 	@mkdir -p bin/Asm
