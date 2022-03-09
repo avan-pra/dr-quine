@@ -29,7 +29,6 @@ void quinepy(int fd)
 			case 9: { write(1, "{tab}", 5);break;}
 			case 10: { write(1, "{nl}", 4);break;}
 			case 34: { write(1, "{quote}", 7);break;}
-			case 37: { write(1, "{pourcent}", 10);break;}
 			case 92: { write(1, "{backs}", 7);break;}
 			default: { write(1, &c, 1);}
 		}
