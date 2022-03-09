@@ -1,12 +1,16 @@
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
 
 int main(int argc, char **argv)
 {
 	int fd = open(argv[1], O_RDONLY);
 	char c;
 
-	write(1, "#define CODE \"#define CODE %4$c%1$s%4$c%3$c", 43);
+	if (argv[1][strlen(argv[1]) - 1] == 'c')
+		write(1, "#define CODE \"#define CODE %4$c%1$s%4$c%3$c", 43);
+	if (argv[1][strlen(argv[1]) - 1] == 's')
+		write(1, "CODE db \"CODE db %4$c%1$s%4$c", 43);
 	while (read(fd, &c, 1) > 0)
 	{
 		switch (c) {
