@@ -46,8 +46,9 @@ int main(int argc, char **argv)
 		quinec(fd);
 	}
 	if (argv[1][strlen(argv[1]) - 1] == 's') {
-		write(1, "CODE db \"CODE db %4$c%1$s%4$c", 43);
+		write(1, "CODE db \"CODE db %4$c%1$s%4$c,0%3$c", 35);
 		quinec(fd);
+		write(1, ",0", 2);
 	}
 	if (argv[1][strlen(argv[1]) - 2] == 'p' && argv[1][strlen(argv[1]) - 1] == 'y') {
 		quinepy(fd);
